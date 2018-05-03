@@ -193,6 +193,7 @@
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +204,10 @@
     <Compile Include="Migrations\201805022121485_add_service_samples.cs" />
     <Compile Include="Migrations\201805022121485_add_service_samples.Designer.cs">
       <DependentUpon>201805022121485_add_service_samples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805030848126_correct_mistakes.cs" />
+    <Compile Include="Migrations\201805030848126_correct_mistakes.Designer.cs">
+      <DependentUpon>201805030848126_correct_mistakes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,10 +277,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -296,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805022121485_add_service_samples.resx">
       <DependentUpon>201805022121485_add_service_samples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805030848126_correct_mistakes.resx">
+      <DependentUpon>201805030848126_correct_mistakes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

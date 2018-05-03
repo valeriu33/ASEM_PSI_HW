@@ -9,10 +9,10 @@ namespace BankIS.Models
     {
         public int ID { get; set; }
 
-        public string Name { get; set; }
-        public string Prenume { get; set; }
-        public DateTime BithDate { get; set; }
-        public char Sex { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public char Gender { get; set; }
         public Decimal PersonalId { get; set; }
 
         public ICollection<Service> Services { get; set; }

@@ -1,0 +1,83 @@
+﻿@model BankIS.Models.Client
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h4 class="text-success">
+    @ViewBag.messageSuccess
+</h4>
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4>Client</h4>
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-2" for="BirthDate">Birth Date</label>
+            <div class="col-md-10">
+                <input class="form-control" data-val="true" data-val-date="The field BirthDate must be a date."
+                       data-val-required="The BirthDate field is required."
+                       id="BirthDate" name="BirthDate" type="date"/>
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Gender">Gender</label>
+            <div class="col-md-10">
+                <select class="form-control" name="Gender" id="Gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+@*            @Html.LabelFor(model => model.PersonalId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" for="PersonalId">IDNP</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PersonalId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PersonalId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
