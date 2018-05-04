@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BankIS.Models;
+using BankIS.ViewModels;
 
 namespace BankIS.Controllers
 {
@@ -25,21 +26,29 @@ namespace BankIS.Controllers
         public ActionResult Create()
         {
             var db = new DBcontext();
-            var serviceTypes = db.ServiceTypes;
-            var services = db.Services;
+
+            var serviceServiceTypeViewModel = new ServiceServiceTypeViewModel();
+            serviceServiceTypeViewModel.ServiceTypes = db.ServiceTypes;
             
-            return View(services);
+            
+            return View(serviceServiceTypeViewModel);
         }
 
         // POST: Service/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            ViewBag.ServiceSuccess = "The service has been successfuly added";
+            var db = new DBcontext();
             try
             {
-                // TODO: Add insert logic here
+                Service service = new Service();
 
-                return RedirectToAction("Index");
+                service.Rate = Convert.ToDecimal(collection["Rate"]);
+                service.BeginDate = Convert.ToDateTime(collection["BeginDate"]);
+                service.EndDate = Convert.ToDateTime(collection["EndDate"]);
+                service.ServiceType = new ServiceType() {Name = collection["ServiceType"]};
+                return View();
             }
             catch
             {

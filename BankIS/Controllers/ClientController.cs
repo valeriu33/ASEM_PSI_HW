@@ -35,7 +35,7 @@ namespace BankIS.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            ViewBag.messageSuccess = "The Client was successufuly registered";
+            ViewBag.ClientSuccess = "The Client was successufuly registered";
             var db = new DBcontext();
             Client newClient = new Client();
             try

@@ -14,7 +14,7 @@ namespace BankIS.Models
         public DateTime BirthDate { get; set; }
         public char Gender { get; set; }
         public Decimal PersonalId { get; set; }
-
+        
         public ICollection<Service> Services { get; set; }
     }
 }

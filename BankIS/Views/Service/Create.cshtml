@@ -1,4 +1,4 @@
-﻿@model BankIS.Models.Service.
+﻿@model BankIS.ViewModels.ServiceServiceTypeViewModel
 
 @{
     ViewBag.Title = "Service";
@@ -16,26 +16,38 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Service.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Service.Rate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Service.Rate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Service.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
+                <input class="form-control" data-val="true" data-val-date="The field BeginDate must be a date."
+                       data-val-required="The BeginDate field is required."
+                       id="BeginDate" name="BeginDate" type="date"/>
+                @Html.ValidationMessageFor(model => model.Service.BeginDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Service.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                <input class="form-control" data-val="true" data-val-date="The field EndDate must be a date."
+                       data-val-required="The EndDate field is required."
+                       id="EndDate" name="EndDate" type="date"/>
+                @Html.ValidationMessageFor(model => model.Service.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Service.ServiceType.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Service.ServiceType.Id , new SelectList(Model.ServiceTypes,"Id","Name"), "Select Service", new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Service.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
