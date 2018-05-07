@@ -40,15 +40,21 @@ namespace BankIS.Controllers
         {
             ViewBag.ServiceSuccess = "The service has been successfuly added";
             var db = new DBcontext();
+
+            var serviceServiceTypeViewModel = new ServiceServiceTypeViewModel();
+            serviceServiceTypeViewModel.ServiceTypes = db.ServiceTypes;
+
             try
             {
                 Service service = new Service();
-
-                service.Rate = Convert.ToDecimal(collection["Rate"]);
-                service.BeginDate = Convert.ToDateTime(collection["BeginDate"]);
-                service.EndDate = Convert.ToDateTime(collection["EndDate"]);
-                service.ServiceType = new ServiceType() {Name = collection["ServiceType"]};
-                return View();
+                
+                service.Rate = Convert.ToDecimal(Request.Form["Service.Rate"]);
+                service.BeginDate = Convert.ToDateTime(Request.Form["BeginDate"]);
+                service.EndDate = Convert.ToDateTime(Request.Form["EndDate"]);
+                service.ServiceTypeId = Convert.ToInt16(Request.Form["Service.ServiceTypeId"]);
+                db.Services.Add(service);
+                db.SaveChanges();
+                return View(serviceServiceTypeViewModel);
             }
             catch
             {

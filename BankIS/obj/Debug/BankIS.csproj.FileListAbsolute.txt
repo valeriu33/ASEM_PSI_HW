@@ -148,3 +148,5 @@ C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.csproj.Co
 C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.dll
 C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.pdb
 C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.Migrations.correct_mistakes.resources
+C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.Migrations.addedclientIdandserviceTypeId.resources
+C:\Users\vseremet\Documents\GitHub\ASEM_PSI_HW\BankIS\obj\Debug\BankIS.Migrations.idioticmistake.resources

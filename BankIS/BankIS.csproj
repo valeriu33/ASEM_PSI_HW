@@ -209,6 +209,14 @@
     <Compile Include="Migrations\201805030848126_correct_mistakes.Designer.cs">
       <DependentUpon>201805030848126_correct_mistakes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805071220385_added-clientId-and-serviceTypeId.cs" />
+    <Compile Include="Migrations\201805071220385_added-clientId-and-serviceTypeId.Designer.cs">
+      <DependentUpon>201805071220385_added-clientId-and-serviceTypeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805071235193_idiotic-mistake.cs" />
+    <Compile Include="Migrations\201805071235193_idiotic-mistake.Designer.cs">
+      <DependentUpon>201805071235193_idiotic-mistake.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -307,6 +315,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805030848126_correct_mistakes.resx">
       <DependentUpon>201805030848126_correct_mistakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805071220385_added-clientId-and-serviceTypeId.resx">
+      <DependentUpon>201805071220385_added-clientId-and-serviceTypeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805071235193_idiotic-mistake.resx">
+      <DependentUpon>201805071235193_idiotic-mistake.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

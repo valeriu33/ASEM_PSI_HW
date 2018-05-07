@@ -13,6 +13,9 @@ namespace BankIS.Models
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
 
+        public int? ClientId { get; set; }
+        public int? ServiceTypeId { get; set; }
+
         public ServiceType ServiceType { get; set; }
         public Client Client { get; set; }
     }

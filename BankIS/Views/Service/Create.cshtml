@@ -7,10 +7,15 @@
 <h2>Service</h2>
 
 
-@using (Html.BeginForm()) 
+<h4 class="text-success">
+    @ViewBag.messageSuccess
+</h4>
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Service</h4>
         <hr />
@@ -28,7 +33,7 @@
             <div class="col-md-10">
                 <input class="form-control" data-val="true" data-val-date="The field BeginDate must be a date."
                        data-val-required="The BeginDate field is required."
-                       id="BeginDate" name="BeginDate" type="date"/>
+                       id="BeginDate" name="BeginDate" type="date" />
                 @Html.ValidationMessageFor(model => model.Service.BeginDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,16 +43,15 @@
             <div class="col-md-10">
                 <input class="form-control" data-val="true" data-val-date="The field EndDate must be a date."
                        data-val-required="The EndDate field is required."
-                       id="EndDate" name="EndDate" type="date"/>
+                       id="EndDate" name="EndDate" type="date" />
                 @Html.ValidationMessageFor(model => model.Service.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Service.ServiceType.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Service.ServiceTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Service.ServiceType.Id , new SelectList(Model.ServiceTypes,"Id","Name"), "Select Service", new {@class = "form-control"})
-                @Html.ValidationMessageFor(model => model.Service.EndDate, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Service.ServiceTypeId, new SelectList(Model.ServiceTypes, "Id", "Name"), "Select Service", new { @class = "form-control" })
             </div>
         </div>
 
