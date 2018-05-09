@@ -9,7 +9,7 @@ namespace BankIS.Models
     public class DBcontext : DbContext
     {
         public DBcontext()
-            : base("name=DefaultConnection")
+            : base("name=DBConnection")
         {
         }
 

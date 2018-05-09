@@ -13,7 +13,7 @@ namespace BankIS.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            return View();
+            return View(new DBcontext().Services);
         }
 
         // GET: Service/Details/5
@@ -22,17 +22,19 @@ namespace BankIS.Controllers
             return View();
         }
 
-        // GET: Service/Create
-        public ActionResult Create()
+        // GET: Service/Create/id
+        public ActionResult Create(int id)
         {
             var db = new DBcontext();
 
+            ViewBag.ClientId = id;
+            
             var serviceServiceTypeViewModel = new ServiceServiceTypeViewModel();
             serviceServiceTypeViewModel.ServiceTypes = db.ServiceTypes;
             
             
             return View(serviceServiceTypeViewModel);
-        }
+        }   
 
         // POST: Service/Create
         [HttpPost]
@@ -52,6 +54,8 @@ namespace BankIS.Controllers
                 service.BeginDate = Convert.ToDateTime(Request.Form["BeginDate"]);
                 service.EndDate = Convert.ToDateTime(Request.Form["EndDate"]);
                 service.ServiceTypeId = Convert.ToInt16(Request.Form["Service.ServiceTypeId"]);
+//                service.ClientId = Convert.ToInt16(Request.Form["Service.ClientID"]);
+
                 db.Services.Add(service);
                 db.SaveChanges();
                 return View(serviceServiceTypeViewModel);
