@@ -48,14 +48,21 @@ namespace BankIS.Controllers
 
             try
             {
-                Service service = new Service();
-                
-                service.Rate = Convert.ToDecimal(Request.Form["Service.Rate"]);
-                service.BeginDate = Convert.ToDateTime(Request.Form["BeginDate"]);
-                service.EndDate = Convert.ToDateTime(Request.Form["EndDate"]);
-                service.ServiceTypeId = Convert.ToInt16(Request.Form["Service.ServiceTypeId"]);
-//                service.ClientId = Convert.ToInt16(Request.Form["Service.ClientID"]);
+                Service service = new Service
+                {
+                    Rate = Convert.ToDecimal(Request.Form["Service.Rate"]),
+                    BeginDate = Convert.ToDateTime(Request.Form["BeginDate"]),
+                    EndDate = Convert.ToDateTime(Request.Form["EndDate"]),
+                    ServiceTypeId = Convert.ToInt16(Request.Form["Service.ServiceTypeId"]),
+                    ClientId = Convert.ToInt16(Request.Form["Service.ClientID"])
+                };
 
+
+                if (db.Clients.Single(c => c.ID == service.ClientId).Services == null)
+                {
+                    db.Clients.Single(c => c.ID == service.ClientId).Services = new List<Service>();
+                }
+                db.Clients.Single(c => c.ID == service.ClientId).Services.Add(service);
                 db.Services.Add(service);
                 db.SaveChanges();
                 return View(serviceServiceTypeViewModel);

@@ -28,25 +28,47 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@for(var i = 0;i < Model.Count();i++) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).BirthDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PersonalId)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).PersonalId)
         </td>
         <td>
-            @Html.ActionLink("Add Service", "Create", "Service", new { id = item.ID}, null)
-            <a >Show Services</a>
+            @Html.ActionLink("Add Service", "Create", "Service", new { id = Model.ElementAt(i).ID}, null)
+            <a id="showServices">Show Services</a>
         </td>
     </tr>
+    for(var j = 0; j <= Model.ElementAt(i).Services?.Count + 2; j++)
+    {
+        <tr>
+            <td>
+                    @Model.ElementAt(i).Services.ElementAt(j).Rate
+                da
+            </td>
+        </tr>
+    }
 }
+    </table>
 
-</table>
+
+<script>
+
+    $(function () {
+        for(var i = 0;i < Number(@Model.Count());i++)
+        {
+            $('#minimizedUser'+i+'').hide();
+        }
+           
+
+
+        })
+</script>

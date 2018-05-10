@@ -15,7 +15,7 @@ namespace BankIS.Controllers
         public ActionResult Index()
         {
             DBcontext db = new DBcontext();
-            return View(db.Clients.ToList());
+            return View(model: db.Clients);
         }
 
         // GET: Client/Details/5
